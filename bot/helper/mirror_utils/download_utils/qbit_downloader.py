@@ -88,11 +88,11 @@ def add_qb_torrent(link, path, listener, select):
                     break
             buttons = button_build.ButtonMaker()
             if WEB_PINCODE:
-                buttons.buildbutton("Select Files", f"{BASE_URL}/app/files/{ext_hash}")
-                buttons.sbutton("Pincode", f"qbs pin {gid} {pincode}")
+                buttons.buildbutton("📝Select Files", f"{BASE_URL}/app/files/{ext_hash}")
+                buttons.sbutton("🙈Pincode", f"qbs pin {gid} {pincode}")
             else:
-                buttons.buildbutton("Select Files", f"{BASE_URL}/app/files/{ext_hash}?pin_code={pincode}")
-            buttons.sbutton("Done Selecting", f"qbs done {gid} {ext_hash}")
+                buttons.buildbutton("📝Select Files", f"{BASE_URL}/app/files/{ext_hash}?pin_code={pincode}")
+            buttons.sbutton("Done Selecting✅", f"qbs done {gid} {ext_hash}")
             QBBUTTONS = InlineKeyboardMarkup(buttons.build_menu(2))
             msg = "Your download paused. Choose files then press Done Selecting button to start downloading."
             sendMarkup(msg, listener.bot, listener.update, QBBUTTONS)
