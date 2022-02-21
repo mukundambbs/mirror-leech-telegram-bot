@@ -168,7 +168,7 @@ class GoogleDriveHelper:
         # File body description
         file_metadata = {
             'name': file_name,
-            'description': 'Uploaded by Mirror-leech-telegram-bot',
+            'description': 'Uploaded by @LinkZz_MBBS Group',
             'mimeType': mime_type,
         }
         if parent_id is not None:
@@ -356,38 +356,38 @@ class GoogleDriveHelper:
                     LOGGER.info("Deleting cloned data from Drive...")
                     self.deletefile(durl)
                     return "your clone has been stopped and cloned data has been deleted!", "cancelled"
-                msg += f'<b>Name: </b><code>{meta.get("name")}</code>\n\n<b>Size: </b>{get_readable_file_size(self.transferred_size)}'
-                msg += '\n\n<b>Type: </b>Folder'
-                msg += f'\n<b>SubFolders: </b>{self.__total_folders}'
-                msg += f'\n<b>Files: </b>{self.__total_files}'
+                msg += f'<b>𝗡𝗮𝗺𝗲: </b><code>{meta.get("name")}</code>\n\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(self.transferred_size)}'
+                msg += '\n\n<b>𝗧𝘆𝗽𝗲: </b>Folder'
+                msg += f'\n<b>𝗦𝘂𝗯𝗙𝗼𝗹𝗱𝗲𝗿𝘀: </b>{self.__total_folders}'
+                msg += f'\n<b>𝗙𝗶𝗹𝗲𝘀: </b>{self.__total_files}'
                 buttons = ButtonMaker()
                 durl = short_url(durl)
-                buttons.buildbutton("☁️ Drive Link", durl)
+                buttons.buildbutton("☁️𝗗𝗿𝗶𝘃𝗲 𝗟𝗶𝗻𝗸☁️", durl)
                 if INDEX_URL is not None:
                     url_path = rquote(f'{meta.get("name")}')
                     url = f'{INDEX_URL}/{url_path}/'
                     url = short_url(url)
-                    buttons.buildbutton("⚡ Index Link", url)
+                    buttons.buildbutton("⚡𝗜𝗻𝗱𝗲𝘅 𝗟𝗶𝗻𝗸⚡", url)
             else:
                 file = self.__copyFile(meta.get('id'), parent_id)
-                msg += f'<b>Name: </b><code>{file.get("name")}</code>'
+                msg += f'<b>𝗡𝗮𝗺𝗲: </b><code>{file.get("name")}</code>'
                 durl = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
                 buttons = ButtonMaker()
                 durl = short_url(durl)
-                buttons.buildbutton("☁️ Drive Link", durl)
+                buttons.buildbutton("☁️𝗗𝗿𝗶𝘃𝗲 𝗟𝗶𝗻𝗸☁️", durl)
                 if mime_type is None:
                     mime_type = 'File'
-                msg += f'\n\n<b>Size: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
-                msg += f'\n\n<b>Type: </b>{mime_type}'
+                msg += f'\n\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
+                msg += f'\n\n<b>𝗧𝘆𝗽𝗲: </b>{mime_type}'
                 if INDEX_URL is not None:
                     url_path = rquote(f'{file.get("name")}')
                     url = f'{INDEX_URL}/{url_path}'
                     url = short_url(url)
-                    buttons.buildbutton("⚡ Index Link", url)
+                    buttons.buildbutton("⚡𝗜𝗻𝗱𝗲𝘅 𝗟𝗶𝗻𝗸⚡", url)
                     if VIEW_LINK:
                         urls = f'{INDEX_URL}/{url_path}?a=view'
                         urls = short_url(urls)
-                        buttons.buildbutton("🌐 View Link", urls)
+                        buttons.buildbutton("🌐𝗩𝗶𝗲𝘄 𝗟𝗶𝗻𝗸🌐", urls)
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
                 buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
             if BUTTON_FIVE_NAME is not None and BUTTON_FIVE_URL is not None:
@@ -436,7 +436,7 @@ class GoogleDriveHelper:
     def __create_directory(self, directory_name, parent_id):
         file_metadata = {
             "name": directory_name,
-            "description": "Uploaded by Mirror-leech-telegram-bot",
+            "description": "Uploaded by @LinkZz_MBBS Group",
             "mimeType": self.__G_DRIVE_DIR_MIME_TYPE
         }
         if parent_id is not None:
@@ -534,7 +534,7 @@ class GoogleDriveHelper:
                     nxt_page += 1
             telegraph.edit_page(
                 path = self.path[prev_page],
-                title = 'Mirror-Leech-Bot Drive Search',
+                title = '@LinkZz_MBBS Drive Search Area',
                 content=content
             )
         return
@@ -721,7 +721,7 @@ class GoogleDriveHelper:
         for content in self.telegraph_content:
             self.path.append(
                 telegraph.create_page(
-                    title='Mirror-Leech-Bot Drive Search',
+                    title='@LinkZz_MBBS Drive Search Area',
                     content=content
                 )["path"]
             )
@@ -730,9 +730,9 @@ class GoogleDriveHelper:
         if self.num_of_path > 1:
             self.__edit_telegraph()
 
-        msg = f"<b>Found {contents_count} result for <i>{fileName}</i></b>"
+        msg = f"<b>𝗙𝗼𝘂𝗻𝗱 {contents_count} 𝗿𝗲𝘀𝘂𝗹𝘁 𝗳𝗼𝗿 <i>{fileName}</i></b>"
         buttons = ButtonMaker()
-        buttons.buildbutton("🔎 VIEW", f"https://telegra.ph/{self.path[0]}")
+        buttons.buildbutton("🔎𝗖𝗟𝗜𝗖𝗞 𝗛𝗘𝗥𝗘 𝗧𝗢 𝗩𝗜𝗘𝗪 𝗥𝗘𝗦𝗨𝗟𝗧", f"https://telegra.ph/{self.path[0]}")
 
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
 
@@ -751,20 +751,20 @@ class GoogleDriveHelper:
             mime_type = meta.get('mimeType')
             if mime_type == self.__G_DRIVE_DIR_MIME_TYPE:
                 self.__gDrive_directory(meta)
-                msg += f'<b>Name: </b><code>{name}</code>'
-                msg += f'\n\n<b>Size: </b>{get_readable_file_size(self.__total_bytes)}'
-                msg += '\n\n<b>Type: </b>Folder'
-                msg += f'\n<b>SubFolders: </b>{self.__total_folders}'
-                msg += f'\n<b>Files: </b>{self.__total_files}'
+                msg += f'<b>𝗡𝗮𝗺𝗲: </b><code>{name}</code>'
+                msg += f'\n\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(self.__total_bytes)}'
+                msg += '\n\n<b>𝗧𝘆𝗽𝗲: </b>Folder'
+                msg += f'\n<b>𝗦𝘂𝗯𝗙𝗶𝗹𝗱𝗲𝗿𝘀: </b>{self.__total_folders}'
+                msg += f'\n<b>𝗙𝗶𝗹𝗲𝘀: </b>{self.__total_files}'
             else:
-                msg += f'<b>Name: </b><code>{name}</code>'
+                msg += f'<b>𝗡𝗮𝗺𝗲: </b><code>{name}</code>'
                 if mime_type is None:
                     mime_type = 'File'
                 self.__total_files += 1
                 self.__gDrive_file(meta)
-                msg += f'\n\n<b>Size: </b>{get_readable_file_size(self.__total_bytes)}'
-                msg += f'\n\n<b>Type: </b>{mime_type}'
-                msg += f'\n<b>Files: </b>{self.__total_files}'
+                msg += f'\n\n<b>𝗦𝗶𝘇𝗲: </b>{get_readable_file_size(self.__total_bytes)}'
+                msg += f'\n\n<b>𝗧𝘆𝗽𝗲: </b>{mime_type}'
+                msg += f'\n<b>𝗙𝗶𝗹𝗲𝘀: </b>{self.__total_files}'
         except Exception as err:
             if isinstance(err, RetryError):
                 LOGGER.info(f"Total Attempts: {err.last_attempt.attempt_number}")
