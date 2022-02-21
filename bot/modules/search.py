@@ -94,9 +94,9 @@ def torserbut(update, context):
         site = data[2]
         tool = data[3]
         if tool == 'api':
-            editMessage(f"<b>Searching for <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
+            editMessage(f"<b>🔍Searching for <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
         else:
-            editMessage(f"<b>Searching for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>", message)
+            editMessage(f"<b>S🔍earching for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>", message)
         Thread(target=_search, args=(key, site, message, tool)).start()
     else:
         query.answer()
@@ -112,8 +112,8 @@ def _search(key, site, message, tool):
             if site == "all":
                 search_results = list(itertools.chain.from_iterable(search_results))
             if isinstance(search_results, list):
-                msg = f"<b>Found {min(len(search_results), SEARCH_LIMIT)}</b>"
-                msg += f" <b>result for <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i></b>"
+                msg = f"<b>𝗙𝗼𝘂𝗻𝗱 {min(len(search_results), SEARCH_LIMIT)}</b>"
+                msg += f" <b>𝗥𝗲𝘀𝘂𝗹𝘁 𝗙𝗼𝗿 <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i></b>"
             else:
                 return editMessage(f"No result found for <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i>", message)
         except Exception as e:
@@ -131,13 +131,13 @@ def _search(key, site, message, tool):
         search_results = dict_search_results.results
         total_results = dict_search_results.total
         if total_results != 0:
-            msg = f"<b>Found {min(total_results, SEARCH_LIMIT)}</b>"
-            msg += f" <b>result for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>"
+            msg = f"<b>𝗙𝗼𝘂𝗻𝗱 {min(total_results, SEARCH_LIMIT)}</b>"
+            msg += f" <b>𝗥𝗲𝘀𝘂𝗹𝘁 𝗙𝗼𝗿 <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>"
         else:
             return editMessage(f"No result found for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i>", message)
     link = _getResult(search_results, key, message, tool)
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("🔎 VIEW", link)
+    buttons.buildbutton("🔎𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲 𝘁𝗼 𝗩𝗶𝗲𝘄", link)
     button = InlineKeyboardMarkup(buttons.build_menu(1))
     editMessage(msg, message, button)
     if tool != 'api':
@@ -192,7 +192,7 @@ def _getResult(search_results, key, message, tool):
 
     editMessage(f"<b>Creating</b> {len(telegraph_content)} <b>Telegraph pages.</b>", message)
     path = [telegraph.create_page(
-                title='Mirror-leech-bot Torrent Search',
+                title='@LinkZz_MBBS Torrent Search Area',
                 content=content
             )["path"] for content in telegraph_content]
     sleep(0.5)
@@ -218,7 +218,7 @@ def _edit_telegraph(path, telegraph_content):
                 nxt_page += 1
         telegraph.edit_page(
             path = path[prev_page],
-            title = 'Mirror-leech-bot Torrent Search',
+            title = '@LinkZz_MBBS Torrent Search Area',
             content=content
         )
     return
