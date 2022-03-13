@@ -251,7 +251,6 @@ def main():
         osremove(".restartmsg")
     # Heroku restarted
     GROUP_ID = f'{AUTHORIZED_CHATS}'
-        kie = datetime.now(pytz.timezone('Asia/India'))
         jam = kie.strftime('\n📅 𝘿𝘼𝙏𝙀: %d/%m/%Y\n⏲️ 𝙏𝙄𝙈𝙀: %I:%M%P')
         if GROUP_ID is not None and isinstance(GROUP_ID, str):
         try:
