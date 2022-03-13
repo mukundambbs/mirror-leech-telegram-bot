@@ -250,11 +250,11 @@ def main():
         bot.edit_message_text("𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗲𝗱 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆😇", chat_id, msg_id)
         osremove(".restartmsg")
     # Heroku restarted
-    GROUP_ID = f'{AUTHORIZED_CHATS}'
-        if GROUP_ID is not None and isinstance(GROUP_ID, str):
+    chat_id = f'{AUTHORIZED_CHATS}'
+        if chat_id is not None and isinstance(GROUP_ID, str):
         try:
              dispatcher.bot.sendMessage(
-                f"{GROUP_ID}", f"♻️ 𝐁𝐎𝐓 𝐆𝐎𝐓 𝐑𝐄𝐒𝐓𝐀𝐑𝐓𝐄𝐃 ♻️\n\n📅 𝘿𝘼𝙏𝙀: %d/%m/%Y\n⏲️ 𝙏𝙄𝙈𝙀: %I:%M%P\n\n🗺️ 𝙏𝙄𝙈𝙀 𝙕𝙊𝙉𝙀\nAsia/India\n\n𝙿𝙻𝙴𝙰𝚂𝙴 𝚁𝙴-𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙰𝙶𝙰𝙸𝙽\n\n#Restarted")
+                f"{chat_id}", f"♻️ 𝐁𝐎𝐓 𝐆𝐎𝐓 𝐑𝐄𝐒𝐓𝐀𝐑𝐓𝐄𝐃 ♻️\n\n📅 𝘿𝘼𝙏𝙀: %d/%m/%Y\n⏲️ 𝙏𝙄𝙈𝙀: %I:%M%P\n\n🗺️ 𝙏𝙄𝙈𝙀 𝙕𝙊𝙉𝙀\nAsia/India\n\n𝙿𝙻𝙴𝙰𝚂𝙴 𝚁𝙴-𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙰𝙶𝙰𝙸𝙽\n\n#Restarted")
         except Exception as e:
             LOGGER.warning(e)
 
