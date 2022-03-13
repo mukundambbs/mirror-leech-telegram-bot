@@ -251,7 +251,7 @@ def main():
         osremove(".restartmsg")
     # Heroku restarted
     chat_id = f'{AUTHORIZED_CHATS}'
-        if chat_id is not None and isinstance(GROUP_ID, str):
+        if chat_id is not None and isinstance(chat_id, str):
         try:
              dispatcher.bot.sendMessage(
                 f"{chat_id}", f"♻️ 𝐁𝐎𝐓 𝐆𝐎𝐓 𝐑𝐄𝐒𝐓𝐀𝐑𝐓𝐄𝐃 ♻️\n\n📅 𝘿𝘼𝙏𝙀: %d/%m/%Y\n⏲️ 𝙏𝙄𝙈𝙀: %I:%M%P\n\n🗺️ 𝙏𝙄𝙈𝙀 𝙕𝙊𝙉𝙀\nAsia/India\n\n𝙿𝙻𝙴𝙰𝚂𝙴 𝚁𝙴-𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝙰𝙶𝙰𝙸𝙽\n\n#Restarted")
